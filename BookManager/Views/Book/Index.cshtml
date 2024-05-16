@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<BookManager.Models.Book>
+@{
+    ViewBag.Title = "Danh Sách Book";
+}
+
+
+<h2>Danh Sách Book</h2>
+
+
+<p>
+    @Html.ActionLink("Thêm Sách Mới", "AddNew")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tiêu Đề Sách</th>
+            <th>Tác Giả</th>
+            <th>Ngày Xuất Bản</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.TitleBook</td>
+                <td>@book.AuthorBook</td>
+                <td>@book.PublishedDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
